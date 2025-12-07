@@ -1,0 +1,54 @@
+/* src/index.css */
+
+/* IMPORTS must come first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌐 Genel ayarlar */
+:root {
+  --nav-height: 72px; /* navbar yüksekliğine göre ayarla */
+}
+
+html {
+  scroll-behavior: smooth; /* butonlara tıklanınca yumuşak kaydırma */
+}
+
+body {
+  @apply bg-white text-black antialiased;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 🧭 Navbar / sabit bar için offset */
+/* sections için scroll-margin-top navbar yüksekliğine eşit yapıldı */
+section {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* 🎞️ Basit kart hover animasyonu (ProjectCard) */
+.project-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔲 Contact butonlarının hover animasyonu */
+.contact-button {
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+  will-change: transform, background-color;
+}
+.contact-button:hover {
+  transform: scale(1.04);
+}
+
+/* Küçük responsive düzeltme */
+@media (max-width: 640px) {
+  :root { --nav-height: 64px; }
+  .w-32 { width: 6.5rem; height: 6.5rem; } /* contact kutularını biraz küçült */
+}
